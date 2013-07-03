@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>HAMMERVIEW</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<h1 class="text-center">HAMMERVIEW</h1>
+		<div class="container-fluid">
+		    <div id="navigation" class="row-fluid">
+				<div class="span3 offset5">
+				    <ul class="nav nav-pills">
+				    <li class="active">
+				    <a href="#">Processing</a>
+				    </li>
+				    <li><a href="#">Stats</a></li>
+					</ul>
+				</div>
+			</div>
+		    <div class="row-fluid">
+			    <div class="span6">
+			    	<h2 class="text-center">Drive 1 (sr0)</h2>
+				    <div id="side1_section_scan">
+						<h4><em>1. Initial Disc Scan Status: This is a status...</em></h4>
+					    <div class="progress progress-striped active">
+					    	<div class="bar" style="width: 40%;"></div>
+					    </div>
+					    <div class="well well-small">
+							<pre>
+There is going to be log here!!
+							</pre>
+					    </div>
+					</div>
+					<div id="side1_section_metadata">
+						<h4>2. Metadata Selection:</h4>
+					    <table class="table table-hover table-striped">
+						    <!--<caption>This is a table of metadata for the inserted disc.</caption>-->
+						    <thead>
+							    <tr>
+							    <th><i class="icon-ok"></i></th>
+							    <th>Title</th>
+								<th>Year</th>
+								<th>Rating</th>
+								<th>Director</th>
+							    </tr>
+						    </thead>
+						    <tbody>
+							    <tr>
+							    <td><input type="checkbox"></input></td>
+							    <td>Sherlock Holmes: A Game of Shadows</td>
+								<td>2011</td>
+								<td>PG-13</td>
+								<td>Guy Ritchie</td>
+							    </tr>
+						    </tbody>
+					    </table>
+					    <form class="form-horizontal">
+							<div class="control-group">
+							    <label class="control-label" for="outputPath">Output Path:</label>
+							    <div class="controls">
+							    <input class="input-xxlarge uneditable-input" type="text" id="outputPath" placeholder="Output Path..." value="this is test"></input>
+							    </div>
+							</div>
+						    <div class="control-group">
+							    <label class="control-label" for="outputName">Output Name:</label>
+							    <div class="controls">
+							    	<input class="input-xxlarge uneditable-input" type="text" id="outputName" placeholder="Output Name..." value="this is a second test..."></input>
+							    </div>
+							</div>
+							<button class="btn btn-large btn-primary disabled" type="button" disabled="disabled">THIS IS GO TIME!</button>
+					    </form>
+					</div>
+				    <div id="side1_section_processing">
+						<h4>3. Processing Status</h4>
+					    <div class="progress progress-striped active">
+					    	<div class="bar" style="width: 40%;"></div>
+					    </div>
+					</div>
+			    </div>
+			    <div class="span6">
+			    	<h2 class="text-center">Drive 2 (sr1)</h2>
+				    <div id="side2_section_scan">
+						<h4>1. Initial Disc Scan Status: This is a status...</h4>
+					    <div class="progress progress-striped active">
+					    	<div class="bar" style="width: 40%;"></div>
+					    </div>
+					    <div class="well well-small">
+							<pre>
+There is going to be log here!!
+							</pre>
+					    </div>
+					</div>
+					<div id="side2_section_metadata">
+						<h4>2. Metadata Selection:</h4>
+					    <table class="table table-hover table-striped">
+						    <!--<caption>This is a table of metadata for the inserted disc.</caption>-->
+						    <thead>
+							    <tr>
+							    <th><i class="icon-ok"></i></th>
+							    <th>Title</th>
+								<th>Year</th>
+								<th>Rating</th>
+								<th>Director</th>
+							    </tr>
+						    </thead>
+						    <tbody>
+							    <tr>
+							    <td><input type="checkbox"></input></td>
+							    <td>Sherlock Holmes: A Game of Shadows</td>
+								<td>2011</td>
+								<td>PG-13</td>
+								<td>Guy Ritchie</td>
+							    </tr>
+						    </tbody>
+					    </table>
+					    <form class="form-horizontal">
+							<div class="control-group">
+							    <label class="control-label" for="outputPath">Output Path:</label>
+							    <div class="controls">
+							    <input class="input-xxlarge uneditable-input" type="text" id="outputPath" placeholder="Output Path..." value="this is test"></input>
+							    </div>
+							</div>
+						    <div class="control-group">
+							    <label class="control-label" for="outputName">Output Name:</label>
+							    <div class="controls">
+							    	<input class="input-xxlarge uneditable-input" type="text" id="outputName" placeholder="Output Name..." value="this is a second test..."></input>
+							    </div>
+							</div>
+							<button class="btn btn-large btn-primary disabled" type="button" disabled="disabled">THIS IS GO TIME!</button>
+					    </form>
+					</div>
+				    <div id="side2_section_processing">
+						<h4>3. Processing Status</h4>
+					    <div class="progress progress-striped active">
+					    	<div class="bar" style="width: 40%;"></div>
+					    </div>
+					</div>
+			    </div>
+			</div>
+	    </div>
+		<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
