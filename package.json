@@ -3,14 +3,13 @@
   "version": "0.0.1",
   "author": "Derek Yap <zangzi@gmail.com>",
   "description": "A web gui to monitor video decoding/encoding/acquisition/metadata processing.",
-  "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodejitsu/http-server.git"
+    "url": "https://github.com/splytech/hammerview.git"
   },
   "keywords": [
 	"backup",
@@ -25,9 +24,11 @@
   ],
   "dependencies": {
     "express": "3.2.6",
+	"bootstrap": "git+https://github.com/twitter/bootstrap.git#v2.3.2",
     "hjs": "*",
 	"mongoose": "3.x.x",
 	"mongoose-times": "0.1.x",
+	"sigar": "0.0.2",
 	"node-prowl": "0.1.x",
 	"socket.io": "0.9.x",
 	"request": "2.x.x",
