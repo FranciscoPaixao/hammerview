@@ -3,13 +3,44 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , io_base = require('socket.io')
-  , path = require('path');
+var express = require('express');
+var routes = require('./routes');
+var user = require('./routes/user');
+var http = require('http');
+var io_base = require('socket.io');
+var path = require('path');
 var less = require('less-middleware');
+var udisks = require('./lib/udisks_manager.js');
+var util = require('util');
+
+function inter_added() {
+	var name = 'app_interadded';
+	var currentTime = new Date();
+	console.log(currentTime, ' ** '+name+' ** Monitor\n');
+	console.log(util.inspect(arguments, {showHidden: false, depth: null, colors: true}));
+	// drive_collect(arguments[0], function (err, device_info) {
+	// 	optical_disk_device_0_info = device_info;
+	// 	console.log(optical_disk_device_0_info);
+	// });
+}
+
+function inter_removed() {
+	var name = 'app_interadded';
+	var currentTime = new Date();
+	console.log(currentTime, ' ** '+name+' ** Monitor\n');
+	console.log(util.inspect(arguments, {showHidden: false, depth: null, colors: true}));
+}
+
+var config = {
+	drives: ['/org/freedesktop/UDisks2/block_devices/sr0',
+			'/org/freedesktop/UDisks2/block_devices/sr1']
+};
+
+udisks.driveFocus(config.drives);
+udisks.interfaceAdded(inter_added);
+udisks.interfaceRemoved(inter_removed);
+
+console.log('udisk object....', util.inspect(udisks, {showHidden: false, colors: true}));
 
 var app = express();
 

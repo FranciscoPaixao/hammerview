@@ -24,7 +24,10 @@
 		    <div class="row-fluid">
 			    <div class="span6">
 			    	<h2 class="text-center">Drive 1 (sr0)</h2>
-				    <div id="side1_section_scan">
+					<div id="side1_section_status">
+						<h3 class="text-center">Status: <span id="status">...</span> <button class="btn btn-small btn-primary" type="button">Open Drive</button></h3>
+					</div>
+				    <div id="side1_section_scan" class="hide">
 						<h4><em>1. Initial Disc Scan Status: This is a status...</em></h4>
 					    <div class="progress progress-striped active">
 					    	<div class="bar" style="width: 40%;"></div>
@@ -35,7 +38,7 @@ There is going to be log here!!
 							</pre>
 					    </div>
 					</div>
-					<div id="side1_section_metadata">
+					<div id="side1_section_metadata" class="hide">
 						<h4>2. Metadata Selection:</h4>
 					    <table class="table table-hover table-striped">
 						    <!--<caption>This is a table of metadata for the inserted disc.</caption>-->
@@ -74,7 +77,7 @@ There is going to be log here!!
 							<button class="btn btn-large btn-primary disabled" type="button" disabled="disabled">THIS IS GO TIME!</button>
 					    </form>
 					</div>
-				    <div id="side1_section_processing">
+				    <div id="side1_section_processing" class="hide">
 						<h4>3. Processing Status</h4>
 					    <div class="progress progress-striped active">
 					    	<div class="bar" style="width: 40%;"></div>
