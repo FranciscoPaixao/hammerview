@@ -38,7 +38,8 @@
 	"redis": "0.8.x",
 	"hiredis": "0.1.x",
 	"winston": "0.7.x",
-    "less-middleware": "*"
+    "less-middleware": "*",
+	"requirejs-middleware": "*"
   },
   "devDependencies": {
     "vows": "0.7.x"

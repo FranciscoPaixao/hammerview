@@ -145,15 +145,10 @@ There is going to be log here!!
 			    </div>
 			</div>
 	    </div>
-		<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="/socket.io/socket.io.js"></script>
-		<script>
-		  var socket = io.connect('http://{{hostname}}');
-		  socket.on('news', function (data) {
-		    console.log(data);
-		    socket.emit('my other event', { my: 'data' });
-		  });
-		</script>
+		<script data-main="js/kickstart.js" src="js/require.js"></script>
+		<!-- // <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+		// <script src="js/bootstrap.min.js"></script>
+		// <script src="/socket.io/socket.io.js"></script>
+		// <script src="js/hammer.js"></script> -->
 	</body>
 </html>

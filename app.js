@@ -3,46 +3,54 @@
  * Module dependencies.
  */
 
+// General Modules:
 var express = require('express');
+var io_base = require('socket.io');
+var less = require('less-middleware');
+
+// Node Modules:
+var http = require('http');
+var util = require('util');
+var path = require('path');
+
+// Application Modules:
+var setup = require('./lib/setup.js');
 var routes = require('./routes');
 var user = require('./routes/user');
-var http = require('http');
-var io_base = require('socket.io');
-var path = require('path');
-var less = require('less-middleware');
-var udisks = require('./lib/udisks_manager.js');
-var util = require('util');
 
-function inter_added() {
-	var name = 'app_interadded';
-	var currentTime = new Date();
-	console.log(currentTime, ' ** '+name+' ** Monitor\n');
-	console.log(util.inspect(arguments, {showHidden: false, depth: null, colors: true}));
-	// drive_collect(arguments[0], function (err, device_info) {
-	// 	optical_disk_device_0_info = device_info;
-	// 	console.log(optical_disk_device_0_info);
-	// });
-}
+// Server Components:
+var app = express();
+var server = http.createServer(app);
+var io = io_base.listen(server);
 
-function inter_removed() {
-	var name = 'app_interadded';
-	var currentTime = new Date();
-	console.log(currentTime, ' ** '+name+' ** Monitor\n');
-	console.log(util.inspect(arguments, {showHidden: false, depth: null, colors: true}));
-}
+// Production Settings:
+// io.enable('browser client minification');  // send minified client
+// io.enable('browser client etag');          // apply etag caching logic based on version number
+// io.enable('browser client gzip');          // gzip the file
+// io.set('log level', 1);                    // reduce logging
+// 
+// // enable all transports (optional if you want flashsocket support, please note that some hosting
+// // providers do not allow you to create servers that listen on a port different than 80 or their
+// // default port)
+// io.set('transports', [
+//     'websocket'
+//   , 'flashsocket'
+//   , 'htmlfile'
+//   , 'xhr-polling'
+//   , 'jsonp-polling'
+// ]);
 
+/**
+ * Server Setup.
+ */
 var config = {
-	drives: ['/org/freedesktop/UDisks2/block_devices/sr0',
-			'/org/freedesktop/UDisks2/block_devices/sr1']
+	drives: ['/dev/sr0',
+			'/dev/sr1'],
+	socketio: io
 };
 
-udisks.driveFocus(config.drives);
-udisks.interfaceAdded(inter_added);
-udisks.interfaceRemoved(inter_removed);
-
-console.log('udisk object....', util.inspect(udisks, {showHidden: false, colors: true}));
-
-var app = express();
+console.log(util.inspect(setup, {showHidden: false, depth: null, colors: true}));
+setup.init(config);
 
 var bootstrapPath = path.join(__dirname, 'node_modules', 'bootstrap');
 
@@ -71,15 +79,18 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-var server = http.createServer(app);
-var io = io_base.listen(server);
+// io.sockets.on('connection', function (socket) {
+//   socket.emit('news', { hello: 'world' });
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//   });
+// });
 
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
+
+
+/**
+ * Web Server Start:
+ */
 
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

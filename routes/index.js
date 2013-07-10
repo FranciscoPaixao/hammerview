@@ -4,5 +4,6 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'hammerview' });
+
+	res.render('index', { title: 'hammerview' });
 };
